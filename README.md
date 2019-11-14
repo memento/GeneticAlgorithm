@@ -2,7 +2,7 @@
 Refactoring and improving a [gist](https://gist.github.com/Vini2/bd22b36ddc69c5327097921f5118b709#file-simpledemoga-java) from Ms Vijini Mallawaarachchi ( [@Vini2](https://github.com/Vini2) )  
 I also took the edit of [@liangyihuai](https://github.com/liangyihuai) into account.  
   
-For this software I'll iteratively refactor the code with **some** of the best practices in the software industry. However, I kept the lab "sensation", hence, She could keep experimenting in the public static void mail method ;)  
+For this software I'll iteratively refactor the code with **some** of the best practices in the software industry. However, I kept the lab "sensation", hence, [Ms Vijini Mallawaarachchi](https://github.com/Vini2) could keep experimenting in the public static void main() method, as most data scientists do ;)  
   
 I won't use fancy external lib such as for logging as I want Mrs Vijini Mallawaarachchi and her datascience readers to easily clone the repository and run it with no maven/gradle dependency to install.  
   
