@@ -16,7 +16,11 @@ public class SimpleDemoGA {
         SimpleDemoGA demo = new SimpleDemoGA();
 
         //Initialize population
-        demo.population.initializePopulation(10);
+        demo.population.initializePopulation(1000);
+        
+        System.out.println("Population of "+demo.population.popSize+" individuals.");
+        
+        showGeneticPool(demo.population.individuals);
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();
@@ -129,6 +133,17 @@ public class SimpleDemoGA {
 
         //Replace least fittest individual from most fittest offspring
         population.individuals[leastFittestIndex] = getFittestOffspring();
+    }
+    
+    //show genetic state of the population pool
+    static void showGeneticPool(Individual[] individuals) {
+    	System.out.println("==Genetic Pool==");
+    	int increment=0;
+    	for (Individual individual:individuals) {
+    		System.out.println("> Individual  "+increment+" | "+individual.toString()+" |");
+    		increment++;
+    	}
+    	System.out.println("================");
     }
 
 }

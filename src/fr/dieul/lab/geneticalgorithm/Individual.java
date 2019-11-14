@@ -1,5 +1,6 @@
 package fr.dieul.lab.geneticalgorithm;
 
+import java.util.Arrays;
 import java.util.Random;
 
 //Individual class
@@ -40,5 +41,12 @@ class Individual implements Cloneable{
       }
       return individual;
   }
+
+@Override
+public String toString() {
+	return "[genes=" + Arrays.toString(genes) + "]";
+}
+  
+  
 
 }
