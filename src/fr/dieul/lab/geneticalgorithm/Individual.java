@@ -49,7 +49,23 @@ class Individual implements Cloneable{
 
 	@Override
 	public String toString() {
-		return "[genes=" + Arrays.toString(genes) + "]";
+		//without colors
+		//return "[genes=" + Arrays.toString(genes) + "]";
+		
+		//with colors
+		String genesString = "[genes=[";
+		int increment=0;
+		for(int gene:genes) {
+			//print gene
+			if(gene == 0) genesString += ConsoleColors.BLACK_BOLD + ConsoleColors.RED_BACKGROUND_BRIGHT + gene + ConsoleColors.RESET;
+			if(gene == 1) genesString += ConsoleColors.BLACK_BOLD + ConsoleColors.GREEN_BACKGROUND_BRIGHT + gene + ConsoleColors.RESET;
+			//print comma
+			if(increment<genes.length-1) genesString += ", ";
+			
+			increment++;
+		}
+		genesString += "]]";
+		return genesString;
 	}
   
   

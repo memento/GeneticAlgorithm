@@ -8,19 +8,26 @@ public class SimpleDemoGA {
     Individual fittest;
     Individual secondFittest;
     int generationCount = 0;
+    static boolean verbose;
 
     public static void main(String[] args) {
-
-        Random rn = new Random();
-
+    	
+    	Random rn = new Random();
         SimpleDemoGA demo = new SimpleDemoGA();
-
+        
+        //Set parameters here
+        
         //Number of genes each individual has
-        int numberOfGenes = 5;
+        int numberOfGenes = 9;
+        //Number of individuals
+        int numberOfIndividuals = 5;
+        //Verbosity (e.g. Should we print genetic pool in the console?)
+        demo.verbose = true;
+        
+        //===================
         
         //Initialize population
-        demo.population.initializePopulation(/*number of individuals*/ 1,
-        		/*number genes an individual has*/ 5);
+        demo.population.initializePopulation(numberOfIndividuals, numberOfGenes);
         
         System.out.println("Population of "+demo.population.popSize+" individual(s).");
         
@@ -147,6 +154,7 @@ public class SimpleDemoGA {
     
     //show genetic state of the population pool
     static void showGeneticPool(Individual[] individuals) {
+    	if(!verbose) return;
     	System.out.println("==Genetic Pool==");
     	int increment=0;
     	for (Individual individual:individuals) {
