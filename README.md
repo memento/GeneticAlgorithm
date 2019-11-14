@@ -1,5 +1,5 @@
 # GeneticAlgorithm
-Refactoring and improving a gist from Mrs. Vijini Mallawaarachchi ( [@Vini2](https://github.com/Vini2) )  
+Refactoring and improving a gist from Ms Vijini Mallawaarachchi ( [@Vini2](https://github.com/Vini2) )  
 I also took the edit of [@liangyihuai](https://gist.github.com/liangyihuai) into account.  
   
 For this software I'll take a [gist](https://gist.github.com/Vini2/bd22b36ddc69c5327097921f5118b709#file-simpledemoga-java) from Mrs Vijini Mallawaarachchi (@Vini2) and iteratively refactor it with some of the best practices in the software industry.  
