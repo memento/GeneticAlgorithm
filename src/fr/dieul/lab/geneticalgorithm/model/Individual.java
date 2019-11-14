@@ -1,5 +1,6 @@
 package fr.dieul.lab.geneticalgorithm.model;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import fr.dieul.lab.geneticalgorithm.util.ConsoleColors;
@@ -48,10 +49,13 @@ public class Individual implements Cloneable{
       return individual;
   }
 
-	@Override
-	public String toString() {
-		//without colors
-		//return "[genes=" + Arrays.toString(genes) + "]";
+  @Override
+  public String toString() {
+	  //without colors
+	  return "[genes=" + Arrays.toString(genes) + "]";
+  }
+  
+  public String toStringColor() {
 		
 		//with colors
 		String genesString = "[genes=[";

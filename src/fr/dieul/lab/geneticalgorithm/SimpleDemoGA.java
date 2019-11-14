@@ -12,6 +12,7 @@ public class SimpleDemoGA {
     Individual secondFittest;
     int generationCount = 0;
     static boolean verbose;
+    static boolean coloredGenes;
 
     public static void main(String[] args) {
     	
@@ -21,11 +22,13 @@ public class SimpleDemoGA {
         //Set parameters here
         
         //Number of genes each individual has
-        int numberOfGenes = 9;
+        int numberOfGenes = 50;
         //Number of individuals
         int numberOfIndividuals = 5;
         //Verbosity (e.g. Should we print genetic pool in the console?)
-        demo.verbose = true;
+        verbose = true;
+        //Apply color to genes (if verbose = true) Note: this will slow down the process
+        coloredGenes = true;
         
         //===================
         
@@ -161,7 +164,7 @@ public class SimpleDemoGA {
     	System.out.println("==Genetic Pool==");
     	int increment=0;
     	for (Individual individual:individuals) {
-    		System.out.println("> Individual  "+increment+" | "+individual.toString()+" |");
+    		System.out.println("> Individual  "+increment+" | "+(coloredGenes?individual.toStringColor():individual.toString())+" |");
     		increment++;
     	}
     	System.out.println("================");
