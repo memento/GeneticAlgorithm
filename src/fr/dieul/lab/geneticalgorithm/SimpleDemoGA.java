@@ -16,16 +16,19 @@ public class SimpleDemoGA {
         SimpleDemoGA demo = new SimpleDemoGA();
 
         //Initialize population
-        demo.population.initializePopulation(1000);
+        demo.population.initializePopulation(1);
         
         System.out.println("Population of "+demo.population.popSize+" individuals.");
         
+        //who genetic pool
         showGeneticPool(demo.population.individuals);
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();
 
         System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.fittest);
+        //who genetic pool
+        showGeneticPool(demo.population.individuals);
 
         //While population gets an individual with maximum fitness
         while (demo.population.fittest < 5) {
@@ -49,6 +52,9 @@ public class SimpleDemoGA {
             demo.population.calculateFitness();
 
             System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.fittest);
+            
+            //who genetic pool
+            showGeneticPool(demo.population.individuals);
         }
 
         System.out.println("\nSolution found in generation " + demo.generationCount);
