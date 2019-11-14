@@ -7,6 +7,6 @@ I won't use fancy external lib such as for logging as I want Mrs Vijini Mallawaa
 This is my gift to her for her very interrresting [article](https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3).
 
 This repo focuses on :
-- Object Oriented Programming refactoring
+- Object Oriented Programming refactoring (if this work ins't done and she wants to continue improving her program, she'll find it harder to reuse the code if the structure is wobbly)
 - adding usefull and nice customizable printouts
 - going forward (I'try to add some more features I have in mind, relative to her genetic algorithm :) )
