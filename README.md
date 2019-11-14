@@ -13,5 +13,5 @@ This repo focuses on :
 - adding usefull and nice customizable printouts  
 - going forward (I'try to add some more features I have in mind, relative to her genetic algorithm :) )  
 
-![with some small parameters](screenshots/result 1.png)
-![with some large parameters](screenshots/result 2.png)
+![with some small parameters](screenshots/result1.png)
+![with some large parameters](screenshots/result2.png)
