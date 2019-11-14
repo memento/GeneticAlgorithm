@@ -1,14 +1,15 @@
-package fr.dieul.lab.geneticalgorithm;
+package fr.dieul.lab.geneticalgorithm.model;
 
-import java.util.Arrays;
 import java.util.Random;
 
-//Individual class
-class Individual implements Cloneable{
+import fr.dieul.lab.geneticalgorithm.util.ConsoleColors;
 
-	int geneLength;
-	int fitness = 0;
-	int[] genes;
+//Individual class
+public class Individual implements Cloneable{
+
+	public int geneLength;
+	public int fitness = 0;
+	public int[] genes;
 
 	public Individual(int geneLength) {
 		

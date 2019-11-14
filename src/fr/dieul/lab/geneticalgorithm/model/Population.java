@@ -1,12 +1,12 @@
-package fr.dieul.lab.geneticalgorithm;
+package fr.dieul.lab.geneticalgorithm.model;
 
 //Population class
-class Population {
+public class Population {
 
-  int popSize;
-  Individual[] individuals;
+  public int popSize;
+  public Individual[] individuals;
   int geneLength;
-  int fittest = 0;
+  public int fittest = 0;
 
   //Initialize population
   public void initializePopulation(int popSize, int geneLength) {

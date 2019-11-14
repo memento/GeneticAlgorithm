@@ -1,4 +1,4 @@
-package fr.dieul.lab.geneticalgorithm;
+package fr.dieul.lab.geneticalgorithm.util;
 
 public class ConsoleColors {
     // Reset

@@ -2,6 +2,9 @@ package fr.dieul.lab.geneticalgorithm;
 
 import java.util.Random;
 
+import fr.dieul.lab.geneticalgorithm.model.Individual;
+import fr.dieul.lab.geneticalgorithm.model.Population;
+
 public class SimpleDemoGA {
 
     Population population = new Population();
