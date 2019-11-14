@@ -12,6 +12,8 @@ This repo focuses on :
 - Object Oriented Programming refactoring (if this work ins't done and she wants to continue improving her program, she'll find it harder to reuse the code if the structure is wobbly)  
 - adding usefull and nice customizable printouts  
 - going forward (I'try to add some more features I have in mind, relative to her genetic algorithm :) )  
-
-![with some small parameters](screenshots/result1.png)
+  
+Example partial output when each individual has 50 genes :  
+![with some small parameters](screenshots/result1.png)  
+Example partial output when each individual has only 5 genes :  
 ![with some large parameters](screenshots/result2.png)
