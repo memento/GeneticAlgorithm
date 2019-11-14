@@ -25,7 +25,12 @@ class Population {
           }
       }
       fittest = individuals[maxFitIndex].fitness;
-      return individuals[maxFitIndex];
+      try {
+          return (Individual) individuals[maxFitIndex].clone();
+      } catch (CloneNotSupportedException e) {
+          e.printStackTrace();
+      }
+      return null;
   }
 
   //Get the second most fittest individual
@@ -40,7 +45,12 @@ class Population {
               maxFit2 = i;
           }
       }
-      return individuals[maxFit2];
+      try {
+          return (Individual) individuals[maxFit2].clone();
+      } catch (CloneNotSupportedException e) {
+          e.printStackTrace();
+      }
+      return null;
   }
 
   //Get index of least fittest individual

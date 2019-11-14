@@ -3,7 +3,7 @@ package fr.dieul.lab.geneticalgorithm;
 import java.util.Random;
 
 //Individual class
-class Individual {
+class Individual implements Cloneable{
 
   int fitness = 0;
   int[] genes = new int[5];
@@ -29,6 +29,16 @@ class Individual {
               ++fitness;
           }
       }
+  }
+  
+  @Override
+  protected Object clone() throws CloneNotSupportedException {
+      Individual individual = (Individual)super.clone();
+      individual.genes = new int[5];
+      for(int i = 0; i < individual.genes.length; i++){
+          individual.genes[i] = this.genes[i];
+      }
+      return individual;
   }
 
 }
