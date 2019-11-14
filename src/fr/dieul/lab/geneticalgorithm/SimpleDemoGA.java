@@ -47,7 +47,7 @@ public class SimpleDemoGA {
         System.out.println("Population of "+demo.population.getPopSize()+" individual(s).");
         
         //who genetic pool
-        showGeneticPool(demo.population.getIndividuals());
+//        showGeneticPool(demo.population.getIndividuals());
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();
@@ -177,7 +177,7 @@ public class SimpleDemoGA {
     		System.out.println("> Individual  "+increment+" | "+(coloredGenes?individual.toStringColor():individual.toString())+" |");
     		increment++;
     	}
-    	System.out.println("================");
+    	System.out.println("================\n");
     }
 
 }
