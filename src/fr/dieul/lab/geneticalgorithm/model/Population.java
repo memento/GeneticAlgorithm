@@ -3,35 +3,44 @@ package fr.dieul.lab.geneticalgorithm.model;
 //Population class
 public class Population {
 
-  public int popSize;
-  public Individual[] individuals;
-  int geneLength;
-  public int fittest = 0;
+  private int popSize;
+  private Individual[] individuals;
+  private int geneLength;
+  private int fittestScore = 0;
 
-  //Initialize population
-  public void initializePopulation(int popSize, int geneLength) {
-	  //initialize variables
-	  this.geneLength = geneLength;
-	  this.popSize = popSize;
-	  this.individuals = new Individual[popSize];
-	  
-	  
-      for (int i = 0; i < popSize; i++) {
-          individuals[i] = new Individual(geneLength);
-      }
-  }
+  
+  
+	/**
+	 * @purpose Initialize population
+	 * @param popSize is the population size
+	 * @param geneLength is the number of genes an individual will have
+	 */
+	public Population(int popSize, int geneLength) {
+		super();
+		this.popSize = popSize;
+		this.geneLength = geneLength;
+		this.individuals = new Individual[popSize];
+		
+		//Create a first population pool
+		for (int i = 0; i < popSize; i++) {
+			individuals[i] = new Individual(geneLength);
+		}
+	}
 
-  //Get the fittest individual
-  public Individual getFittest() {
+  //Get the fittest individual and update fittest score
+  public Individual selectFittest() {
       int maxFit = Integer.MIN_VALUE;
       int maxFitIndex = 0;
       for (int i = 0; i < individuals.length; i++) {
-          if (maxFit <= individuals[i].fitness) {
-              maxFit = individuals[i].fitness;
+          if (maxFit <= individuals[i].getFitness()) {
+              maxFit = individuals[i].getFitness();
               maxFitIndex = i;
           }
       }
-      fittest = individuals[maxFitIndex].fitness;
+      //update fittest score
+      fittestScore = individuals[maxFitIndex].getFitness();
+      
+      //try to return the fittest individual
       try {
           return (Individual) individuals[maxFitIndex].clone();
       } catch (CloneNotSupportedException e) {
@@ -41,14 +50,14 @@ public class Population {
   }
 
   //Get the second most fittest individual
-  public Individual getSecondFittest() {
+  public Individual selectSecondFittest() {
       int maxFit1 = 0;
       int maxFit2 = 0;
       for (int i = 0; i < individuals.length; i++) {
-          if (individuals[i].fitness > individuals[maxFit1].fitness) {
+          if (individuals[i].getFitness() > individuals[maxFit1].getFitness()) {
               maxFit2 = maxFit1;
               maxFit1 = i;
-          } else if (individuals[i].fitness > individuals[maxFit2].fitness) {
+          } else if (individuals[i].getFitness() > individuals[maxFit2].getFitness()) {
               maxFit2 = i;
           }
       }
@@ -65,8 +74,8 @@ public class Population {
       int minFitVal = Integer.MAX_VALUE;
       int minFitIndex = 0;
       for (int i = 0; i < individuals.length; i++) {
-          if (minFitVal >= individuals[i].fitness) {
-              minFitVal = individuals[i].fitness;
+          if (minFitVal >= individuals[i].getFitness()) {
+              minFitVal = individuals[i].getFitness();
               minFitIndex = i;
           }
       }
@@ -79,7 +88,45 @@ public class Population {
       for (int i = 0; i < individuals.length; i++) {
           individuals[i].calcFitness();
       }
-      getFittest();
+      selectFittest();
   }
+  
+ 	//Getters and Setters
+  
+	public int getPopSize() {
+		return popSize;
+	}
+	
+	public void setPopSize(int popSize) {
+		this.popSize = popSize;
+	}
+	
+	public Individual[] getIndividuals() {
+		return individuals;
+	}
+	
+	public void setIndividuals(Individual[] individuals) {
+		this.individuals = individuals;
+	}
+	
+	public int getGeneLength() {
+		return geneLength;
+	}
+	
+	public void setGeneLength(int geneLength) {
+		this.geneLength = geneLength;
+	}
+
+	
+	public int getFittestScore() {
+		return fittestScore;
+	}
+	
+
+	public void setFittestScore(int fittestScore) {
+		this.fittestScore = fittestScore;
+	}
+	
+	
 
 }

@@ -8,9 +8,9 @@ import fr.dieul.lab.geneticalgorithm.util.ConsoleColors;
 //Individual class
 public class Individual implements Cloneable{
 
-	public int geneLength;
-	public int fitness = 0;
-	public int[] genes;
+	private int geneLength;
+	private int fitness = 0;
+	private int[] genes;
 
 	public Individual(int geneLength) {
 		
@@ -73,6 +73,32 @@ public class Individual implements Cloneable{
 		return genesString;
 	}
   
+	//Getters and Setters
   
+	public int getGeneLength() {
+		return geneLength;
+	}
+
+	public void setGeneLength(int geneLength) {
+		this.geneLength = geneLength;
+	}
+
+	public int getFitness() {
+		return fitness;
+	}
+
+	public void setFitness(int fitness) {
+		this.fitness = fitness;
+	}
+
+	public int[] getGenes() {
+		return genes;
+	}
+
+	public void setGenes(int[] genes) {
+		this.genes = genes;
+	}
+
+
 
 }

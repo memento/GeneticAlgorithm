@@ -7,24 +7,31 @@ import fr.dieul.lab.geneticalgorithm.model.Population;
 
 public class SimpleDemoGA {
 
-    Population population = new Population();
-    Individual fittest;
-    Individual secondFittest;
-    int generationCount = 0;
-    static boolean verbose;
-    static boolean coloredGenes;
+	private Population population;
+	private Individual fittest;
+	private Individual secondFittest;
+	private int generationCount;
+	private static int numberOfGenes;
+	private static int numberOfIndividuals;
+	private static boolean verbose;
+	private static boolean coloredGenes;
+    
+	public SimpleDemoGA() {
+		this.population = new Population(numberOfIndividuals, numberOfGenes);
+		this.generationCount = 0;
+	}
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
     	
     	Random rn = new Random();
-        SimpleDemoGA demo = new SimpleDemoGA();
+        
         
         //Set parameters here
         
         //Number of genes each individual has
-        int numberOfGenes = 50;
+        numberOfGenes = 5;
         //Number of individuals
-        int numberOfIndividuals = 5;
+        numberOfIndividuals = 5;
         //Verbosity (e.g. Should we print genetic pool in the console?)
         verbose = true;
         //Apply color to genes (if verbose = true) Note: this will slow down the process
@@ -33,22 +40,24 @@ public class SimpleDemoGA {
         //===================
         
         //Initialize population
-        demo.population.initializePopulation(numberOfIndividuals, numberOfGenes);
+        SimpleDemoGA demo = new SimpleDemoGA();
         
-        System.out.println("Population of "+demo.population.popSize+" individual(s).");
+        demo.population = new Population(numberOfIndividuals, numberOfGenes);
+        
+        System.out.println("Population of "+demo.population.getPopSize()+" individual(s).");
         
         //who genetic pool
-        showGeneticPool(demo.population.individuals);
+        showGeneticPool(demo.population.getIndividuals());
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();
 
-        System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.fittest);
+        System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.getFittestScore());
         //who genetic pool
-        showGeneticPool(demo.population.individuals);
+        showGeneticPool(demo.population.getIndividuals());
 
         //While population gets an individual with maximum fitness
-        while (demo.population.fittest < numberOfGenes) {
+        while (demo.population.getFittestScore() < numberOfGenes) {
             ++demo.generationCount;
 
             //Do selection
@@ -68,17 +77,18 @@ public class SimpleDemoGA {
             //Calculate new fitness value
             demo.population.calculateFitness();
 
-            System.out.println("Generation: " + demo.generationCount + " Fittest: " + demo.population.fittest);
+            System.out.println("Generation: " + demo.generationCount + " Fittest score: " + demo.population.getFittestScore());
             
             //who genetic pool
-            showGeneticPool(demo.population.individuals);
+            showGeneticPool(demo.population.getIndividuals());
         }
 
         System.out.println("\nSolution found in generation " + demo.generationCount);
-        System.out.println("Fitness: "+demo.population.getFittest().fitness);
+        //System.out.println("Fitness: "+demo.population.getFittestScore().getFitness());
+        System.out.println("Fitness: "+demo.population.getFittestScore());
         System.out.print("Genes: ");
         for (int i = 0; i < numberOfGenes; i++) {
-            System.out.print(demo.population.getFittest().genes[i]);
+            System.out.print(demo.population.selectFittest().getGenes()[i]);
         }
 
         System.out.println("");
@@ -89,10 +99,10 @@ public class SimpleDemoGA {
     void selection() {
 
         //Select the most fittest individual
-        fittest = population.getFittest();
+        fittest = population.selectFittest();
 
         //Select the second most fittest individual
-        secondFittest = population.getSecondFittest();
+        secondFittest = population.selectSecondFittest();
     }
 
     //Crossover
@@ -100,13 +110,13 @@ public class SimpleDemoGA {
         Random rn = new Random();
 
         //Select a random crossover point
-        int crossOverPoint = rn.nextInt(population.individuals[0].geneLength);
+        int crossOverPoint = rn.nextInt(population.getIndividuals()[0].getGeneLength());
 
         //Swap values among parents
         for (int i = 0; i < crossOverPoint; i++) {
-            int temp = fittest.genes[i];
-            fittest.genes[i] = secondFittest.genes[i];
-            secondFittest.genes[i] = temp;
+            int temp = fittest.getGenes()[i];
+            fittest.getGenes()[i] = secondFittest.getGenes()[i];
+            secondFittest.getGenes()[i] = temp;
 
         }
 
@@ -117,27 +127,27 @@ public class SimpleDemoGA {
         Random rn = new Random();
 
         //Select a random mutation point
-        int mutationPoint = rn.nextInt(population.individuals[0].geneLength);
+        int mutationPoint = rn.nextInt(population.getIndividuals()[0].getGeneLength());
 
         //Flip values at the mutation point
-        if (fittest.genes[mutationPoint] == 0) {
-            fittest.genes[mutationPoint] = 1;
+        if (fittest.getGenes()[mutationPoint] == 0) {
+            fittest.getGenes()[mutationPoint] = 1;
         } else {
-            fittest.genes[mutationPoint] = 0;
+            fittest.getGenes()[mutationPoint] = 0;
         }
 
-        mutationPoint = rn.nextInt(population.individuals[0].geneLength);
+        mutationPoint = rn.nextInt(population.getIndividuals()[0].getGeneLength());
 
-        if (secondFittest.genes[mutationPoint] == 0) {
-            secondFittest.genes[mutationPoint] = 1;
+        if (secondFittest.getGenes()[mutationPoint] == 0) {
+            secondFittest.getGenes()[mutationPoint] = 1;
         } else {
-            secondFittest.genes[mutationPoint] = 0;
+            secondFittest.getGenes()[mutationPoint] = 0;
         }
     }
 
     //Get fittest offspring
     Individual getFittestOffspring() {
-        if (fittest.fitness > secondFittest.fitness) {
+        if (fittest.getFitness() > secondFittest.getFitness()) {
             return fittest;
         }
         return secondFittest;
@@ -155,7 +165,7 @@ public class SimpleDemoGA {
         int leastFittestIndex = population.getLeastFittestIndex();
 
         //Replace least fittest individual from most fittest offspring
-        population.individuals[leastFittestIndex] = getFittestOffspring();
+        population.getIndividuals()[leastFittestIndex] = getFittestOffspring();
     }
     
     //show genetic state of the population pool
