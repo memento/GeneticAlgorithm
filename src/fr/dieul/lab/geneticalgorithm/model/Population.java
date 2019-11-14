@@ -81,6 +81,19 @@ public class Population {
       }
       return minFitIndex;
   }
+  
+  //Get index of the fittest individual
+  public int getFittestIndex() {
+      int maxFit = Integer.MIN_VALUE;
+      int maxFitIndex = 0;
+      for (int i = 0; i < individuals.length; i++) {
+          if (maxFit <= individuals[i].getFitness()) {
+              maxFit = individuals[i].getFitness();
+              maxFitIndex = i;
+          }
+      }
+      return maxFitIndex;
+  }
 
   //Calculate fitness of each individual
   public void calculateFitness() {

@@ -29,7 +29,7 @@ public class SimpleDemoGA {
         //Set parameters here
         
         //Number of genes each individual has
-        numberOfGenes = 5;
+        numberOfGenes = 50;
         //Number of individuals
         numberOfIndividuals = 5;
         //Verbosity (e.g. Should we print genetic pool in the console?)
@@ -50,7 +50,7 @@ public class SimpleDemoGA {
         demo.population.calculateFitness();
 
         System.out.println("\nGeneration: " + demo.generationCount + " Fittest: " + demo.population.getFittestScore());
-        //who genetic pool
+        //show genetic pool
         showGeneticPool(demo.population.getIndividuals());
 
         //While population gets an individual with maximum fitness
@@ -76,12 +76,12 @@ public class SimpleDemoGA {
 
             System.out.println("\nGeneration: " + demo.generationCount + " Fittest score: " + demo.population.getFittestScore());
             
-            //who genetic pool
+            //show genetic pool
             showGeneticPool(demo.population.getIndividuals());
         }
 
         System.out.println("\nSolution found in generation " + demo.generationCount);
-        //System.out.println("Fitness: "+demo.population.getFittestScore().getFitness());
+        System.out.println("Index of winner Individual: "+demo.population.getFittestIndex());
         System.out.println("Fitness: "+demo.population.getFittestScore());
         System.out.print("Genes: ");
         for (int i = 0; i < numberOfGenes; i++) {
