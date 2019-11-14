@@ -5,17 +5,19 @@ class Population {
 
   int popSize;
   Individual[] individuals;
+  int geneLength;
   int fittest = 0;
 
   //Initialize population
-  public void initializePopulation(int popSize) {
+  public void initializePopulation(int popSize, int geneLength) {
 	  //initialize variables
+	  this.geneLength = geneLength;
 	  this.popSize = popSize;
 	  this.individuals = new Individual[popSize];
 	  
 	  
       for (int i = 0; i < popSize; i++) {
-          individuals[i] = new Individual();
+          individuals[i] = new Individual(geneLength);
       }
   }
 

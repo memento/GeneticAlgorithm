@@ -15,10 +15,14 @@ public class SimpleDemoGA {
 
         SimpleDemoGA demo = new SimpleDemoGA();
 
-        //Initialize population
-        demo.population.initializePopulation(1);
+        //Number of genes each individual has
+        int numberOfGenes = 5;
         
-        System.out.println("Population of "+demo.population.popSize+" individuals.");
+        //Initialize population
+        demo.population.initializePopulation(/*number of individuals*/ 1,
+        		/*number genes an individual has*/ 5);
+        
+        System.out.println("Population of "+demo.population.popSize+" individual(s).");
         
         //who genetic pool
         showGeneticPool(demo.population.individuals);
@@ -31,7 +35,7 @@ public class SimpleDemoGA {
         showGeneticPool(demo.population.individuals);
 
         //While population gets an individual with maximum fitness
-        while (demo.population.fittest < 5) {
+        while (demo.population.fittest < numberOfGenes) {
             ++demo.generationCount;
 
             //Do selection
@@ -60,7 +64,7 @@ public class SimpleDemoGA {
         System.out.println("\nSolution found in generation " + demo.generationCount);
         System.out.println("Fitness: "+demo.population.getFittest().fitness);
         System.out.print("Genes: ");
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < numberOfGenes; i++) {
             System.out.print(demo.population.getFittest().genes[i]);
         }
 
