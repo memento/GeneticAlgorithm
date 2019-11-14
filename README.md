@@ -12,3 +12,6 @@ This repo focuses on :
 - Object Oriented Programming refactoring (if this work ins't done and she wants to continue improving her program, she'll find it harder to reuse the code if the structure is wobbly)  
 - adding usefull and nice customizable printouts  
 - going forward (I'try to add some more features I have in mind, relative to her genetic algorithm :) )  
+
+![with some small parameters](screenshots/result 1.png)
+![with some large parameters](screenshots/result 2.png)
