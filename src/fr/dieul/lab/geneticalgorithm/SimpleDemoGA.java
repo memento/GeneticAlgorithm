@@ -16,7 +16,7 @@ public class SimpleDemoGA {
         SimpleDemoGA demo = new SimpleDemoGA();
 
         //Initialize population
-        demo.population.initializePopulation(3000);
+        demo.population.initializePopulation(10);
 
         //Calculate fitness of each individual
         demo.population.calculateFitness();

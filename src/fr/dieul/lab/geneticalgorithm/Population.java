@@ -3,13 +3,18 @@ package fr.dieul.lab.geneticalgorithm;
 //Population class
 class Population {
 
-  int popSize = 10;
-  Individual[] individuals = new Individual[10];
+  int popSize;
+  Individual[] individuals;
   int fittest = 0;
 
   //Initialize population
-  public void initializePopulation(int size) {
-      for (int i = 0; i < individuals.length; i++) {
+  public void initializePopulation(int popSize) {
+	  //initialize variables
+	  this.popSize = popSize;
+	  this.individuals = new Individual[popSize];
+	  
+	  
+      for (int i = 0; i < popSize; i++) {
           individuals[i] = new Individual();
       }
   }
