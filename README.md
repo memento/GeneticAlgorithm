@@ -1,2 +1,12 @@
 # GeneticAlgorithm
 Refactoring and improving a gist from Vijini Mallawaarachchi
+
+For this software I'll take a [gist](https://gist.github.com/Vini2/bd22b36ddc69c5327097921f5118b709#file-simpledemoga-java) from Mrs Vijini Mallawaarachchi (@Vini2) and iteratively refactor it with some of the best practices in the software industry.
+I won't use fancy external lib such as for logging as I want Mrs Vijini Mallawaarachchi and her datascience readers to easily clone the repository and run it with no maven/gradle dependency to install.
+
+This is my gift to her for her very interrresting [article](https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3).
+
+This repo focuses on :
+- Object Oriented Programming refactoring
+- adding usefull and nice customizable printouts
+- going forward (I'try to add some more features I have in mind, relative to her genetic algorithm :) )
