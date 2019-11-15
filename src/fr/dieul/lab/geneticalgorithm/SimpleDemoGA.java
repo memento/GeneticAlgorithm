@@ -107,7 +107,7 @@ public class SimpleDemoGA {
 		Random rn = new Random();
 
 		//Select a random crossover point
-		int crossOverPoint = rn.nextInt(population.getIndividuals()[0].getGeneLength());
+		int crossOverPoint = rn.nextInt(this.numberOfGenes);
 
 		//Swap values among parents
 		for (int i = 0; i < crossOverPoint; i++) {
@@ -124,7 +124,7 @@ public class SimpleDemoGA {
 		Random rn = new Random();
 
 		//Select a random mutation point
-		int mutationPoint = rn.nextInt(population.getIndividuals()[0].getGeneLength());
+		int mutationPoint = rn.nextInt(this.numberOfGenes);
 
 		//Flip values at the mutation point
 		if (fittest.getGenes()[mutationPoint] == 0) {
@@ -133,7 +133,7 @@ public class SimpleDemoGA {
 			fittest.getGenes()[mutationPoint] = 0;
 		}
 
-		mutationPoint = rn.nextInt(population.getIndividuals()[0].getGeneLength());
+		mutationPoint = rn.nextInt(this.numberOfGenes);
 
 		if (secondFittest.getGenes()[mutationPoint] == 0) {
 			secondFittest.getGenes()[mutationPoint] = 1;
