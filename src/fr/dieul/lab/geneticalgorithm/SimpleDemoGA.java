@@ -29,7 +29,7 @@ public class SimpleDemoGA {
 		//Set parameters here
         
 		//Number of genes each individual has
-		numberOfGenes = 50;
+		numberOfGenes = 20;
 		//Number of individuals
 		numberOfIndividuals = 5;
 		//Verbosity (e.g. Should we print genetic pool in the console?)
